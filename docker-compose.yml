@@ -2,18 +2,31 @@ services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    entrypoint: /myapp/entrypoint.sh
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/myapp
+      - bundle_cache:/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       RAILS_ENV: development
       DATABASE_URL: postgresql://postgres:password@db:5432/myapp_development
+
+volumes:
+  postgres_data:
+  bundle_cache:
