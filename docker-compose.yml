@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres
+    image: postgres:15
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
@@ -13,10 +13,9 @@ services:
 
   web:
     build: .
-    entrypoint: /myapp/entrypoint.sh
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
-      - .:/myapp
+      - .:/rails
       - bundle_cache:/usr/local/bundle
     ports:
       - "3000:3000"
@@ -25,7 +24,7 @@ services:
         condition: service_healthy
     environment:
       RAILS_ENV: development
-      DATABASE_URL: postgresql://postgres:password@db:5432/myapp_development
+      DATABASE_URL: postgresql://postgres:password@db:5432/rails_tutorial_development
 
 volumes:
   postgres_data:

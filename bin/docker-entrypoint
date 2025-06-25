@@ -11,4 +11,23 @@ if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
   ./bin/rails db:prepare
 fi
 
+# Remove a potentially pre-existing server.pid for Rails.
+rm -f /rails/tmp/pids/server.pid
+
+# Wait for database to be ready
+echo "Waiting for PostgreSQL to start..."
+while ! pg_isready -h db -p 5432 -U postgres; do
+  sleep 1
+done
+
+# Initialize database if needed
+if [ ! -f /rails/tmp/.db_initialized ]; then
+  echo "Setting up database..."
+  bundle exec rails db:create db:migrate db:seed
+  touch /rails/tmp/.db_initialized
+else
+  echo "Checking for migrations..."
+  bundle exec rails db:migrate
+fi
+
 exec "${@}"
