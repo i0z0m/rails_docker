@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "rebornix.Ruby",
+    "Shopify.ruby-lsp",
+    "ms-vscode-remote.remote-containers",
+    "bradlc.vscode-tailwindcss",
+    "ms-vscode.vscode-json",
+    "formulahendry.auto-rename-tag",
+    "ms-vscode.vscode-yaml",
+    "redhat.vscode-xml",
+    "GitHub.copilot",
+    "GitHub.copilot-chat"
+  ]
+}

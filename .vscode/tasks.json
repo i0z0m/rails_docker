@@ -1,0 +1,87 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Rails Server",
+      "type": "shell",
+      "command": "bin/rails",
+      "args": [
+        "server",
+        "-b",
+        "0.0.0.0"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "rails",
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^.*Use Ctrl-C to stop$",
+          "endsPattern": "^.*Use Ctrl-C to stop$"
+        }
+      }
+    },
+    {
+      "label": "Rails Console",
+      "type": "shell",
+      "command": "bin/rails",
+      "args": [
+        "console"
+      ],
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Rails Test",
+      "type": "shell",
+      "command": "bin/rails",
+      "args": [
+        "test"
+      ],
+      "group": "test"
+    },
+    {
+      "label": "Bundle Install",
+      "type": "shell",
+      "command": "bundle",
+      "args": [
+        "install"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "Database Setup",
+      "type": "shell",
+      "command": "bin/rails",
+      "args": [
+        "db:setup"
+      ],
+      "group": "build"
+    },
+    {
+      "label": "Database Migrate",
+      "type": "shell",
+      "command": "bin/rails",
+      "args": [
+        "db:migrate"
+      ],
+      "group": "build"
+    }
+  ]
+}
