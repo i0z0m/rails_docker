@@ -20,6 +20,7 @@ RUN apt-get update -qq && \
     npm \
     pkg-config \
     postgresql-client \
+    postgresql-server-dev-all \
     vim \
     wget \
     zlib1g-dev \

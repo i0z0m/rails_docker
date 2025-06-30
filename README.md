@@ -11,6 +11,14 @@ This project supports development using VS Code Dev Containers, which provides a
 - Docker and Docker Compose installed
 - Visual Studio Code with the Dev Containers extension
 
+#### For Kali Linux/Debian users
+If you encounter issues with PostgreSQL gem installation, you may need to install the PostgreSQL development libraries on your host system:
+
+```bash
+sudo apt update
+sudo apt install libpq-dev postgresql-client
+```
+
 ### Getting Started with Dev Container
 
 1. Clone this repository
