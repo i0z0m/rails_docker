@@ -46,6 +46,8 @@
         "ruby.lsp.rubyVersionManager": {
           "identifier": "none"
         },
+        "ruby.lsp.customRubyCommand": "ruby",
+        "ruby.lsp.bundleGemfile": "/rails/Gemfile",
         "editor.formatOnSave": true,
         "editor.tabSize": 2,
         "editor.insertSpaces": true,

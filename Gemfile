@@ -54,6 +54,12 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  
+  # Ruby LSP for VS Code integration [https://github.com/Shopify/ruby-lsp]
+  gem "ruby-lsp", require: false
+  
+  # Ruby LSP Rails addon [https://github.com/Shopify/ruby-lsp-rails]
+  gem "ruby-lsp-rails", require: false
 end
 
 group :test do
