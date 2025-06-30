@@ -1,6 +1,5 @@
 {
   "recommendations": [
-    "rebornix.Ruby",
     "Shopify.ruby-lsp",
     "ms-vscode-remote.remote-containers",
     "bradlc.vscode-tailwindcss",
