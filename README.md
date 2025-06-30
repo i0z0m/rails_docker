@@ -31,12 +31,7 @@ sudo apt install libpq-dev postgresql-client
 4. VS Code will build the container and set up the development environment
 5. Once the container is ready, open a terminal in VS Code and run:
    ```bash
-   bin/setup
-   ```
-
-6. Start the Rails server:
-   ```bash
-   bin/rails server
+   bin/dev
    ```
 
 The application will be available at http://localhost:3000
